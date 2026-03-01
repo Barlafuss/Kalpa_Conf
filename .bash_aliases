@@ -124,3 +124,6 @@ alias SL='sudo snapper list'
 #flatpak
 alias flatver='flatpak list --app'
 alias flatls='ls -d ~/.local/share/flatpak/app/*/* | grep $1'
+# feh must be installed via distrobox
+alias Display='feh -d -F -S filename .'
+alias SShow='feh -d -F -S filename -D 2'
