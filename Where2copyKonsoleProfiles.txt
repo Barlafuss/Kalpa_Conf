@@ -1,0 +1,5 @@
+copy konsole profiles to :
+~/.local/share/konsole/
+
+pictures in
+~/Pictures
