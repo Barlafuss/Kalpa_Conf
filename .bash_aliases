@@ -116,12 +116,14 @@ alias debinfo='zypper if --provides $1'
 alias Arch='qdbus6 $KONSOLE_DBUS_SERVICE $KONSOLE_DBUS_SESSION org.kde.konsole.Session.setProfile "dboxArch"; sleep 1; distrobox enter Arch'
 alias KOD='qdbus6 $KONSOLE_DBUS_SERVICE $KONSOLE_DBUS_SESSION org.kde.konsole.Session.setProfile "Robyfary"'
 alias 2Arch='distrobox enter --root 2Arch'
-alias DEB='qdbus6 $KONSOLE_DBUS_SERVICE $KONSOLE_DBUS_SESSION org.kde.konsole.Session.setProfile "dboxDEB"; sleep 1; distrobox enter DebTesting'
+alias DEB='qdbus6 $KONSOLE_DBUS_SERVICE $KONSOLE_DBUS_SESSION org.kde.konsole.Session.setProfile "dboxDEB"; sleep 1; distrobox enter Deb_Testing'
 alias 2DEB='distrobox enter 2DebTesting'
 alias UPGRADE='distrobox upgrade --all'
 # Snapper
-alias WSnap='sudo btrfs subvolume get-default /' #to identify which snapshot system is using
+alias WSnap='sudo btrfs subvolume get-default /' #to identify which snapshot system is using. Could NOT be the running one
 alias SL='sudo snapper list'
+alias Sdu='sudo btrfs filesystem du -s --human-readable /.snapshots'
+alias Rsnap='findmnt /' #running booted snapshot
 #flatpak
 alias flatver='flatpak list --app'
 alias flatls='ls -d ~/.local/share/flatpak/app/*/* | grep $1'
