@@ -131,4 +131,4 @@ alias flatls='ls -d ~/.local/share/flatpak/app/*/* | grep $1'
 alias Display='feh -d -F -S filename .'
 alias SShow='feh -d -F -S filename -D 2'
 # RCLONE running in distrobox
-alias Bup2GD='rclone copy Google_Drive --include-from Google_Drive/include.txt  --copy-links --log-file Google_Drive/Log.log -v GDrive: && cat ~/Google_Drive/Log.log'
+alias Bup2GD='rclone copy Google_Drive --include-from Google_Drive/include.txt  --copy-links --log-file Google_Drive/Log.log -v GDrive: && tail -n 30 ~/Google_Drive/Log.log'
