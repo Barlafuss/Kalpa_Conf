@@ -130,3 +130,5 @@ alias flatls='ls -d ~/.local/share/flatpak/app/*/* | grep $1'
 # feh must be installed via distrobox
 alias Display='feh -d -F -S filename .'
 alias SShow='feh -d -F -S filename -D 2'
+# RCLONE running in distrobox
+alias Bup2GD='rclone copy Google_Drive --include-from Google_Drive/include.txt  --copy-links --log-file Google_Drive/Log.log -v GDrive: && cat ~/Google_Drive/Log.log'
