@@ -15,6 +15,9 @@ export JAVA_HOME="$HOME/temp/jre1.7.0_01"
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+#useful for SAMBA
+export SMB="/run/user/1000/kio-fuse-*/smb/farina@192.168.1.1/ExternalUSB310/Partition1"
+
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 
 # check the window size after each command and, if necessary,
@@ -109,3 +112,21 @@ fi
 export PATH="$PATH:/snap/bin/libreoffice:$HOME/bin:$HOME/.local/bin:$HOME/.local/lib"
 #LS_COLORS=$LS_COLORS:'di=0;35:' ; export LS_COLORS
 alias bd=". bd -si"
+
+# per chat con TG da laptop
+tg() {
+  . ~/.config/tg.env
+  curl -s "https://api.telegram.org/bot${TG_TOKEN}/sendMessage" \
+       -d chat_id="$TG_CHAT" -d text="$*" >/dev/null
+}
+
+notifica() {
+  "$@"
+  local rc=$?
+  if [ $rc -eq 0 ]; then
+    tg "✅ Finito: $*"
+  else
+    tg "❌ Fallito (exit $rc): $*"
+  fi
+  return $rc
+}

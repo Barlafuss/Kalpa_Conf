@@ -7,7 +7,7 @@ alias opcd='eject /dev/sr0'
 alias clcd='eject -t /dev/sr0'
 alias SOU='source ~/.bashrc'
 #alias battery='acpi -V'
-alias battery='sudo tlp-stat -b'
+alias battery='tlp-stat -b'
 alias tlpall='sudo tlp-stat | more'
 alias grep="grep --color=auto"
 alias mywget='wget -nd -nH -r -k -E -L -np'
@@ -15,7 +15,7 @@ alias wgetmp3='wget -r -l1 -np -A mp3'
 alias ver='cat /etc/issue'
 alias rel='lsb_release -a'
 alias kdeconf='kf5-config -v'
-alias debver='sudo zypper search -s -i $1'
+alias debver='zypper search -s -i $1'
 alias infocpu='sudo dmidecode processor'
 alias numcpu='sudo cat /proc/cpuinfo | grep processor'
 alias mydu='du -h --max-depth=1'
@@ -52,7 +52,7 @@ alias pkgprint='dpkg -p'
 # debclean used to remove all .deb files from cache
 alias debclean='sudo zypper clean --all'
 # debsrch used to find an installable pkg
-alias debsrch="sudo zypper se -s $1"
+alias debsrch="zypper se -s $1"
 alias debpol='apt-cache policy'
 alias debhist="grep '\ upgrade\ ' /var/log/dpkg.log && grep '\ install\ ' /var/log/dpkg.log"
 alias cerca='find /home/farina/Music/ -iname $1'
@@ -90,12 +90,11 @@ alias httpserver='python -m SimpleHTTPServer 8000'
 alias Cambri='~/bin/cambrinary/cambrinary.py -w $1'
 alias dir='ls -d */'
 alias whichpkg='dpkg -S $1'
+# Kalpa system aliases
 alias UPDATE='sudo transactional-update dup -i'
 alias seeSYSupd='sudo journalctl -u transactional-update'
 alias update='sudo zypper refresh && sudo zypper update'
-alias Nhist='nala history'
-alias Ninfo='nala history info $1'
-alias Ninst='sudo nala install $1'
+alias KDS='sudo grep -m 1 -oP "menuentry '\''\K[^'\'']+" /boot/grub2/grub.cfg'
 #distrobox aliases
 alias Tweed='distrobox enter TweedOS'
 alias UDBox='distrobox-upgrade'
@@ -127,8 +126,13 @@ alias Rsnap='findmnt /' #running booted snapshot
 #flatpak
 alias flatver='flatpak list --app'
 alias flatls='ls -d ~/.local/share/flatpak/app/*/* | grep $1'
+alias Fpakupdate='flatpak update'
 # feh must be installed via distrobox
 alias Display='feh -d -F -S filename .'
 alias SShow='feh -d -F -S filename -D 2'
 # RCLONE running in distrobox
 alias Bup2GD='rclone copy Google_Drive --include-from Google_Drive/include.txt  --copy-links --log-file Google_Drive/Log.log -v GDrive: && tail -n 30 ~/Google_Drive/Log.log'
+alias BupfGD='rclone copy GDrive: Google_Drive --include-from Google_Drive/include.txt  --copy-links --log-file Google_Drive/Log.log -v && tail -n 30 ~/Google_Drive/Log.log'
+# Bottles
+alias OLV='flatpak run --command=bottles-cli com.usebottles.bottles run -b WinAPPLY -p OutlookViewer > /dev/null 2>&1'
+alias mostra='chafa -f kitty '
